@@ -1,0 +1,48 @@
+{% extends "base.html" %} {% block head %} {{ super() }}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename= 'extended_beauty.css') }}"
+/>
+{% endblock %} {% block content %}
+<h1>
+  Welcome, {{ user.name }}!
+</h1>
+<div>
+  <table class="table table-hover" style="width: 700px;">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Number of Push-Ups</th>
+        <th scope="col">Performed At</th>
+        <th scope="col">Comments</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for workout in workouts %}
+      <tr>
+        <td>{{ workout.pushups }}</td>
+        <td>{{ workout.date_posted.strftime('%m/%d/%Y') }}</td>
+        <td>{{ workout.comment }}</td>
+        <td>
+          <a
+            href="{{ url_for('main.update_workout', workout_id=workout.id) }}"
+            class="btn btn-outline-primary"
+            role="button"
+          >
+            Edit
+          </a>
+        </td>
+        <td>
+          <a
+            href="{{ url_for('main.delete_workout', workout_id=workout.id) }}"
+            class="btn btn-outline-danger"
+            role="button"
+          >
+            Delete
+          </a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
