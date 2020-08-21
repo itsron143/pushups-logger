@@ -1,0 +1,1 @@
+web: gunicorn pushups_logger:app --log-file -
