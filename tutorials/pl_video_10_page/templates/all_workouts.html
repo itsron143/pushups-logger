@@ -1,0 +1,72 @@
+{% extends "base.html" %} {% block head %} {{ super() }}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename= 'extended_beauty.css') }}"
+/>
+{% endblock %} {% block content %}
+<center>
+  <h1>
+    Welcome, {{ user.name }}!
+  </h1>
+  {% with messages = get_flashed_messages() %} {% if messages %}
+  <div class="flashes">
+    {{ messages[0] }}
+  </div>
+  {% endif %} {% endwith %}
+</center>
+<center>
+  <div>
+    <table class="table table-hover" style="width: 700px;">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Number of Push-Ups</th>
+          <th scope="col">Performed At</th>
+          <th scope="col">Comments</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for workout in workouts.items %}
+        <tr>
+          <td>{{ workout.pushups }}</td>
+          <td>{{ workout.date_posted.strftime('%m/%d/%Y') }}</td>
+          <td>{{ workout.comment }}</td>
+          <td>
+            <a
+              href="{{ url_for('main.update_workout', workout_id=workout.id) }}"
+              class="btn btn-outline-primary"
+              role="button"
+            >
+              Edit
+            </a>
+          </td>
+          <td>
+            <a
+              href="{{ url_for('main.delete_workout', workout_id=workout.id) }}"
+              class="btn btn-outline-danger"
+              role="button"
+            >
+              Delete
+            </a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% for page_num in workouts.iter_pages(left_edge=1, right_edge=1,
+    left_current=1, right_current=1) %} {% if page_num %} {% if workouts.page ==
+    page_num %}
+    <a
+      class="btn btn-info mb-4"
+      href="{{ url_for('main.user_workouts', page=page_num) }}"
+      >{{ page_num }}</a
+    >
+    {% else %}
+    <a
+      class="btn btn-outline-info mb-4"
+      href="{{ url_for('main.user_workouts', page=page_num) }}"
+      >{{ page_num }}</a
+    >
+    {% endif %} {% else %} ... {% endif %} {% endfor %}
+  </div>
+</center>
+{% endblock %}
