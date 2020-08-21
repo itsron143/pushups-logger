@@ -1,0 +1,53 @@
+Metadata-Version: 2.1
+Name: PasteDeploy
+Version: 2.1.0
+Summary: Load, configure, and compose WSGI applications and servers
+Home-page: https://pylonsproject.org/
+Author: Ian Bicking
+Author-email: pylons-discuss@googlegroups.com
+Maintainer: Chris Dent
+Maintainer-email: pylons-discuss@googlegroups.com
+License: MIT
+Project-URL: Documentation, https://docs.pylonsproject.org/projects/pastedeploy/en/latest/
+Project-URL: Changelog, https://docs.pylonsproject.org/projects/pastedeploy/en/latest/news.html
+Project-URL: Issue Tracker, https://github.com/Pylons/pastedeploy/issues
+Keywords: web wsgi application server
+Platform: UNKNOWN
+Classifier: Development Status :: 6 - Mature
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI :: Middleware
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Framework :: Paste
+Provides-Extra: config
+Provides-Extra: paste
+Requires-Dist: Paste ; extra == 'paste'
+Provides-Extra: docs
+Requires-Dist: Sphinx (>=1.7.5) ; extra == 'docs'
+Requires-Dist: pylons-sphinx-themes ; extra == 'docs'
+
+This tool provides code to load WSGI applications and servers from
+URIs. These URIs can refer to Python eggs for INI-style configuration
+files.  `Paste Script <https://github.com/cdent/pastescript>`_ provides
+commands to serve applications based on this configuration file.
+
+The latest version is available on `GitHub
+<https://github.com/Pylons/pastedeploy/>`_ (or download a wheel or tarball from
+`PyPI <https://pypi.org/project/PasteDeploy/#files>`_).
+
+For the latest changes see the `news file
+<https://docs.pylonsproject.org/projects/pastedeploy/en/latest/news.html>`_.
+
+

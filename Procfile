@@ -1,1 +1,1 @@
-web: gunicorn pushups_logger:app --log-file -
+web: gunicorn app:app
