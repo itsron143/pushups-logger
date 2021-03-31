@@ -13,7 +13,7 @@ inotify==0.2.10
 ipaddr==2.2.0
 keyring==21.3.0
 lockfile==0.12.2
-lxml==4.5.2
+lxml==4.6.3
 mock==4.0.2
 mypy_extensions==0.4.3
 numpy==1.19.1
